@@ -1,8 +1,14 @@
 from django.http import HttpResponse
+from django.views.generic import TemplateView
+import os
 
-def helloworldfunction(request):
+def helloworldfunction(request): 
+    #絶対パスから上の上のフォルダをBASE_DIRにする。
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    print(__file__)
     returnobject = HttpResponse('hello world')
     return returnobject
 
-class HelloWorldView(templateView):
+class HelloWorldView(TemplateView):
     template_name = 'hello.html'
+    

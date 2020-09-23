@@ -1,9 +1,10 @@
 from django.contrib import admin
-from django.urls import path
-from .views import helloworldfunction
+from django.urls import path, include
+from .views import helloworldfunction, HelloWorldView
 
+#classの場合は、as_viewメゾッドを使う。
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('helloworld/', helloworldfunction)
+    path('hello/', include('helloworldapp.urls'))
 ]
 
